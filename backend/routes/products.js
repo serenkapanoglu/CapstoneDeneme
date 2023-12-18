@@ -42,7 +42,23 @@ router.get("/", async function(req, res, next) {
         return next(err);
     }
 });
+router.get("/:id", async function(req, res, next) {
+    try{
+        const products = await Product.get(req.params.id);
+        return res.json({ products });
+    } catch(err) {
+        return next(err);
+    }
+});
 
+router.get("/:id/comments", async function(req, res, next) {
+    try{
+        const products = await Product.getCommentsForProducts(req.params.id);
+        return res.json({ products });
+    } catch(err) {
+        return next(err);
+    }
+});
 router.get("/:username/saved", async function(req, res, next) {
     try {
         const products = await Product.getSavedProducts(req.params.username);
