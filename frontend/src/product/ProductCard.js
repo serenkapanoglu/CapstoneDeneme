@@ -5,6 +5,10 @@ import { Link } from 'react-router-dom';
 import "./ProductCard.css"
 
 const ProductCard = ({ id, name, imgUrl }) => {
+  const handleAddCart = (e) => {
+    e.preventDefault();
+    console.log('clicked to the add to cart')
+  }
   return (
     <Card className="my-3 p-3 rounded" style={{ width: '18rem'}}>
      <Link className='cardtitle' to={`/products/${id}`}>
@@ -13,7 +17,7 @@ const ProductCard = ({ id, name, imgUrl }) => {
 
           <Card.Title as="h4">{name}</Card.Title>
 
-        <Button variant="secondary" className="mt-2" >
+        <Button variant="secondary" className="mt-2" onClick={handleAddCart} >
           Add to Cart
         </Button>
       </Card.Body>
