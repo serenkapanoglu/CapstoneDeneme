@@ -18,9 +18,13 @@ import LoginForm from "./login/LoginForm";
 import RegisterForm from "./login/RegisterForm";
 import SignupForm from './login/RegisterForm';
 import Product from './product/Product';
+import ProductDetail from './product/ProductDetail';
 import ProfileForm from './users/ProfileForm';
-import ProductCard from './product/ProductCard';
+import ProductCart from './product/ProductCart';
+//import ProductCard from './product/ProductCard';
 import SavedShow from './product/SavedShow';
+
+
 export const TOKEN_STORAGE_ID = "Lipsticks-token"
 
 function App() {
@@ -78,26 +82,24 @@ function App() {
   if (!infoLoaded) return <LoadingSpinner />;
   return (
 
-      <BrowserRouter>
-        <UserContext.Provider
-            value={{ currentUser, setCurrentUser }}>
-          <div className="App">
-            <NavBar logout={logout} />
-            {/*<Routes login={login} signup={signup} /> */}
-            <Routes>
-              <Route exact path="/" element={<Homepage />}/>
-              <Route exact path="/login" element={<LoginForm login={login}/>}/>
-              <Route exact path="/signup" element={<SignupForm  signup={signup}/>}/>
-              <Route exact path="/products" element={<Product />}/>
-              <Route exact path="/profile" element={<ProfileForm />}/>
-              <Route exact path="/products/:cart" element={<ProductCard />}/>
-              <Route exact path="/products/:id/saved" element={<SavedShow />}/>
-
-           
-            </Routes>
-          </div>
-        </UserContext.Provider>
-      </BrowserRouter>
+    <BrowserRouter>
+    <UserContext.Provider
+        value={{ currentUser, setCurrentUser }}>
+      <div className="App">
+        <NavBar logout={logout} />
+        <Routes>
+          <Route exact path="/" element={<Homepage />}/>
+          <Route exact path="/login" element={<LoginForm login={login}/>}/>
+          <Route exact path="/signup" element={<SignupForm  signup={signup}/>}/>
+          <Route exact path="/products" element={<Product />}/>
+          <Route exact path="/products/:id" element={<ProductDetail />}/>
+          <Route exact path="/profile" element={<ProfileForm />}/>
+          <Route exact path="/products/cart" element={<ProductCart />}/>
+          <Route exact path="/products/:id/saved" element={<SavedShow />}/>
+        </Routes>
+      </div>
+    </UserContext.Provider>
+  </BrowserRouter>
 
   );
 }
