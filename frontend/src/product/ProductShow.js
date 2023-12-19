@@ -28,6 +28,7 @@ function ProductShow() {
                     <ProductCard
                     name={p.name}
                     description={p.description}
+                    price={`$${p.price}`}
                     imgUrl={p.imgUrl}
                     id={p.id}
                     />
