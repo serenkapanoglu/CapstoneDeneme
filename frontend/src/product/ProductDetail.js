@@ -13,6 +13,7 @@ import {
   Button,
   Form,
 } from "react-bootstrap";
+import ProductCard from './ProductCard';
 
 function ProductDetail() {
   const { currentUser } = useContext(UserContext);
@@ -196,6 +197,7 @@ function ProductDetail() {
                             className='rounded'
                             onClick={() => handleDelete(p.id)}
                           >
+                            
                             X
                           </Button>
                         )}
