@@ -59,7 +59,7 @@ class Lipsticks {
 
   static async getProduct(id){
     let res = await this.request(`products/${id}`)
-    return res.product;
+    return res.products;
   }
   
   static async addProduct(data){
