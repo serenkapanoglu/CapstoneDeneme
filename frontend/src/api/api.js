@@ -60,7 +60,6 @@ class Lipsticks {
   static async getProduct(id){
     let res = await this.request(`products/${id}`)
     console.log('asksksksl');
-    console.log(res);
     return res.products;
   }
   
